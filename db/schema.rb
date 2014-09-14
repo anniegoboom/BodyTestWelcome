@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20140914002755) do
 
-  create_table "personalization_survey", :force => true do |t|
+  create_table "personalization_surveys", :force => true do |t|
     t.integer  "user_id",             :null => false
     t.integer  "referral",            :null => false
     t.integer  "goal"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20140914002755) do
     t.integer  "water_consumed"
     t.integer  "fatigue"
     t.integer  "vegetables_consumed"
-    t.integer  "exercuse_per_week"
+    t.integer  "exercise_per_week"
     t.integer  "feel_hunger"
     t.integer  "eat_junkfood"
     t.datetime "created_at",          :null => false

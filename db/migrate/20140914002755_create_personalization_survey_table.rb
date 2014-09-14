@@ -1,6 +1,6 @@
 class CreatePersonalizationSurveyTable < ActiveRecord::Migration
   def change
-    create_table(:personalization_survey) do |t|
+    create_table :personalization_surveys do |t|
       t.integer :user_id,           null: false
       t.integer :referral,          null: false
       t.integer :goal
@@ -12,10 +12,9 @@ class CreatePersonalizationSurveyTable < ActiveRecord::Migration
       t.integer :water_consumed
       t.integer :fatigue
       t.integer :vegetables_consumed
-      t.integer :exercuse_per_week
+      t.integer :exercise_per_week
       t.integer :feel_hunger
       t.integer :eat_junkfood
-
 
       t.timestamps
     end
