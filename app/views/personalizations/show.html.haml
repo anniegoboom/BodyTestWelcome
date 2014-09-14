@@ -1,3 +1,14 @@
-this is where you personalize shit
+#personalization
+  %h1 THE BODY TEST
+  .content-box
+    %h1 Tell us about your current Habits
 
-=link_to 'next', paywalls_path
+    .primer-wrapper
+      #signup-box
+        %h3 Learn more about the 8-week Body Test System
+        .signup-wrapper
+          = form_for @user, url: registration_path(resource_name) do |form|
+            = devise_error_messages!
+            = form.email_field :email, :input_html => {:autofocus => true}
+            = form.submit "Take Control"
+            %p We're here to educate, not to spam you.
