@@ -7,6 +7,13 @@ class PersonalizationsController < ApplicationController
   end
 
   def save_user
-    redirect_to personalization_survey_show_path
+    current_user.first_name = params[:user][:first_name]
+    current_user.gender = params[:user][:gender]
+    p = PersonalizationSurvey.new
+    p.referral = params[:personalization_survey][:referral]
+    p.user = current_user
+    p.save!
+    current_user.save!
+    redirect_to personalization_surveys_path
   end
 end
