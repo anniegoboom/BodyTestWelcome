@@ -1,9 +1,16 @@
 #https://github.com/plataformatec/devise/wiki/How-To:-Email-only-sign-up
 
 class PersonalizationsController < ApplicationController
-  def show
+  def new
     @user = current_user
     @personalization_survey = PersonalizationSurvey.new
+    @gender_hash = ['m', 'f']
+    @referral_hash = {
+      'A friend'                             => 1,
+      'Social Media (Facebook, Twitter, G+)' => 2,
+      'Google'                               => 3,
+      'News or Blog'                         => 4
+    }
   end
 
   def save_user
@@ -15,6 +22,6 @@ class PersonalizationsController < ApplicationController
     p.save!
     current_user.save!
 
-    redirect_to personalization_surveys_path
+    redirect_to edit_personalization_surveys_path
   end
 end
