@@ -6,7 +6,11 @@ BodyTestWelcome::Application.routes.draw do
   end
 
   resource :landing_flows, only: :show
-  resource :personalizations, only: :show
+
+  resource :personalizations, only: :new
+  match "/save_user", to: "personalizations#save_user", via: :put
+
+  resource :personalization_surveys, only: [:edit, :update]
   resource :paywalls, only: :show
 
   root :to => 'landing_flows#show'
