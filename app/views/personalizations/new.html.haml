@@ -11,11 +11,11 @@
             = user.text_field :first_name, :input_html => {:autofocus => true}
           .gender
             What's your gender?
-            = user.select(:gender, options_for_select(@gender_hash))
+            = user.select(:gender, options_for_select(@gender_hash), :include_blank => true)
           = fields_for @personalization_survey, @user.personalization_survey do |survey|
             .referral
               How did you hear about us?
-              = survey.select(:referral, options_for_select(@referral_hash))
+              = survey.select(:referral, options_for_select(@referral_hash), :include_blank => true)
 
           = user.submit "Next, Personalize your body test!"
 

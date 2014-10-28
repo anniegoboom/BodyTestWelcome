@@ -4,7 +4,10 @@ class PersonalizationsController < ApplicationController
   def new
     @user = current_user
     @personalization_survey = PersonalizationSurvey.new
-    @gender_hash = ['m', 'f']
+    @gender_hash = {
+      'Male'   => 'm',
+      'Female' => 'f'
+    }
     @referral_hash = {
       'A friend'                             => 1,
       'Social Media (Facebook, Twitter, G+)' => 2,
