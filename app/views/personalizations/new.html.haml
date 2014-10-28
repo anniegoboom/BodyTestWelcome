@@ -6,17 +6,26 @@
     .primer-wrapper
       #p13n-box
         = form_for @user, url: save_user_path do |user|
-          .name
-            What’s your first name?
-            = user.text_field :first_name, :input_html => {:autofocus => true}
-          .gender
-            What's your gender?
-            = user.select(:gender, options_for_select(@gender_hash), :include_blank => true)
-          = fields_for @personalization_survey, @user.personalization_survey do |survey|
-            .referral
-              How did you hear about us?
-              = survey.select(:referral, options_for_select(@referral_hash), :include_blank => true)
+          .error-explanation
+            - if @user.errors.any? || @personalization_survey.errors.any?
+              %ul
+                - @user.errors.full_messages.each do |msg|
+                  %li= msg
+                - @personalization_survey.errors.full_messages.each do |msg|
+                  %li= msg
+          .input-content
+            .name
+              What’s your first name?
+              = user.text_field :first_name, :input_html => {:autofocus => true}
+            .gender
+              What's your gender?
+              = user.select(:gender, options_for_select(@gender_hash), :include_blank => true)
+            = fields_for @personalization_survey, @user.personalization_survey do |survey|
+              .referral
+                How did you hear about us? *
+                = survey.select(:referral, options_for_select(@referral_hash), :include_blank => true)
 
-          = user.submit "Next, Personalize your body test!"
+          .submit-button
+            = user.submit "Next, Personalize your body test!"
 
 

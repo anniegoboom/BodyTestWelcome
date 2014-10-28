@@ -1,23 +1,43 @@
 class PersonalizationSurveysController < ApplicationController
+  BODY_TEST_PAYMENTS_URL = "http://www.thebodytest.com/pricing/"
 
   def edit
     @personalization_survey = current_user.personalization_survey
-    setup_survey_options
+    setup_survey_answers
   end
 
   def update
-    # current_user.
+    @personalization_survey = current_user.personalization_survey
 
-    # if @company.save
-    #   redirect_to root_url
-    # else
-    #   render :new
-    # end
+    if @personalization_survey.update_attributes(survey_params)
+      redirect_to BODY_TEST_PAYMENTS_URL
+    else
+      setup_survey_answers
+      render :edit
+    end
   end
 
   private
 
-  def setup_survey_options
+  def survey_params
+    survey_answers = params.require(:personalization_survey)
+    survey_answers.permit(
+      :goal,
+      :understand_today,
+      :obstacles,
+      :learn,
+      :energy,
+      :self_body_test,
+      :water_consumed,
+      :fatigue,
+      :vegetables_consumed,
+      :exercise_per_week,
+      :feel_hunger,
+      :eat_junkfood
+    )
+  end
+
+  def setup_survey_answers
     @goal_answers_hash = {
       'Lose weight'                        => 1,
       'Gain weight'                        => 2,
@@ -104,6 +124,5 @@ class PersonalizationSurveysController < ApplicationController
       'Often (several times a day)'     => 4,
       'Constantly (all day long)'       => 5
     }
-
   end
 end
