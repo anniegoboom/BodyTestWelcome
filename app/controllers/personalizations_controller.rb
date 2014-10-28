@@ -14,6 +14,7 @@ class PersonalizationsController < ApplicationController
     p.user = current_user
     p.save!
     current_user.save!
+
     redirect_to personalization_surveys_path
   end
 end
