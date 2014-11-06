@@ -1,0 +1,52 @@
+#personalization_survey_part2
+  = form_for @personalization_survey, url: personalization_surveys_path(@personalization_survey) do |survey|
+    .error-explanation
+      - if @personalization_survey.errors.any?
+        %ul
+          - @personalization_survey.errors.full_messages.each do |msg|
+            %li= msg
+    .input-content
+      #p13n-survey-page-one
+        #goal
+          What do you hope to achieve from doing The Body Test?
+          .dropdown-select= survey.select(:goal, options_for_select(@goal_answers_hash), :include_blank => true)
+        #understand
+          How well do you think you understand your body today?
+          .dropdown-select= survey.select(:understand_today, options_for_select(@understand_today_answer_hash), :include_blank => true)
+        #obstacles
+          What are the biggest obstacles that keep you from feeling your best?
+          .dropdown-select= survey.select(:obstacles, options_for_select(@obstacles_answer_hash), :include_blank => true)
+        .learn
+          What do you want to learn from your Body Test?
+          .dropdown-select= survey.select(:learn, options_for_select(@learn_answer_hash), :include_blank => true)
+
+      #p13n-survey-page-two
+        #energy
+          How energetic are you?
+          .dropdown-select= survey.select(:energy, options_for_select(@energy_answer_hash), :include_blank => true)
+        #self-experiements
+          Have you ever run self-experiments (or Body Tests) on yourself to better understand your body?
+          .dropdown-select= survey.select(:self_body_test, options_for_select(@self_body_test_hash), :include_blank => true)
+        #water
+          How much water do you drink each day?
+          .dropdown-select= survey.select(:water_consumed, options_for_select(@water_answer_hash), :include_blank => true)
+        #morning
+          How do you feel when you wake up each morning?
+          .dropdown-select= survey.select(:fatigue, options_for_select(@fatigue_answer_hash), :include_blank => true)
+        #vegetables
+          How many servings of vegetables do you eat each day?
+          .dropdown-select= survey.select(:vegetables_consumed, options_for_select(@vegetables_answer_hash), :include_blank => true)
+        #exercise
+          How often do you exercise each week?
+          .dropdown-select= survey.select(:exercise_per_week, options_for_select(@exercise_answer_hash), :include_blank => true)
+        #hunger
+          How often do you eat when you’re not physically hungry?
+          .dropdown-select= survey.select(:feel_hunger, options_for_select(@hunger_answer_hash), :include_blank => true)
+        #junkfood
+          How often do you eat processed food or junk food (chips, crackers, cookies, etc.)?
+          .dropdown-select= survey.select(:eat_junkfood, options_for_select(@junkfood_answer_hash), :include_blank => true)
+
+    .submit-button
+      = survey.submit "Take the next Step!"
+
+
