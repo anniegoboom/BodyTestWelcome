@@ -1,10 +1,8 @@
 @import 'variables'
 
-html
-  background: url(background.jpg) no-repeat fixed
-  background-size: auto
-
 body
+  background: url(background.jpg) no-repeat fixed center 0 $black
+  background-size: auto
   display: block
   max-width: 1150px
   text-algin: center
@@ -14,7 +12,7 @@ body
   width: 60%
 
 #title
-  margin-top: $stdMargin * 3.5
+  margin-top: $stdMargin * 4
   h1
     font-family: Langdon
     font-size: 38px
@@ -25,9 +23,14 @@ body
 
 
 #subtitle
-  margin: $stdMargin * 1.5
+  margin-top: -$stdMargin * 0.5
   padding: 0
+  text-align: left
+  display: inline-block
+
   h1
+    margin: 0
+    float: left
     font-family: Gotham Round
     font-size: 22px
     font-weight: 500
@@ -38,7 +41,7 @@ body
 #box-content
   font-family: Gotham Round
   font-weight: lighter
-  margin-top: $stdMargin * 2
+  margin-top: $stdMargin
   padding: $stdPadding
   background-color: $dark-gray
   background: rgba($dark-gray, 0.8)
