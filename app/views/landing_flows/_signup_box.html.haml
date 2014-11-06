@@ -1,0 +1,8 @@
+#signup-box
+  %h3 Learn more about the 8-week Body Test System
+  .signup-wrapper
+    = form_for resource, as: resource_name, url: registration_path(resource_name) do |form|
+      = devise_error_messages!
+      = form.email_field :email, :input_html => {:autofocus => true}
+      = form.submit "Take Control"
+      %p We're here to educate, not to spam you.

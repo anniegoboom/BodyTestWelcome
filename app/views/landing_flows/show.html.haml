@@ -1,34 +1,8 @@
-#welcome
-  %h1 THE BODY TEST
-  .content-box
-    %h1 No two bodies are the same. <br> Become an expert on yours.
+- content_for(:subtitle) do
+  %h1 No two bodies are the same.
+  %h1 Become an expert on yours.
 
-    .sub-headline
-      %span Learn how to use
-      %span.left-bracket {
-      %ul
-        %li food
-        %li sleep
-        %li mindfulness
-        %li exercise
-        %li habits
-      %span.right-bracket }
-      %span to control your
-      %span.left-bracket {
-      %ul
-        %li cravings
-        %li hunger
-        %li weight
-        %li engergy
-        %li mood
-      %span.right-bracket }
+- content_for(:topsection) do
+  = render :partial => 'top_section'
 
-    .primer-wrapper
-      #signup-box
-        %h3 Learn more about the 8-week Body Test System
-        .signup-wrapper
-          = form_for resource, as: resource_name, url: registration_path(resource_name) do |form|
-            = devise_error_messages!
-            = form.email_field :email, :input_html => {:autofocus => true}
-            = form.submit "Take Control"
-            %p We're here to educate, not to spam you.
+= render :partial => 'signup_box'
