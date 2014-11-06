@@ -1,4 +1,4 @@
-#p13n-box
+#p13n-box.span6
   = form_for @user, url: save_user_path do |user|
     .error-explanation
       - if @user.errors.any? || @personalization_survey.errors.any?
@@ -7,17 +7,19 @@
             %li= msg
           - @personalization_survey.errors.full_messages.each do |msg|
             %li= msg
-    .input-content
+    .p13n-survey-input-content
       .name
-        What’s your first name?
+        .question What’s your first name?
         = user.text_field :first_name, :input_html => {:autofocus => true}
       .gender
-        What's your gender?
+        .question What's your gender?
         = user.select(:gender, options_for_select(@gender_hash), :include_blank => true)
+        .p13n-dropdown-arrow-down
       = fields_for @personalization_survey, @user.personalization_survey do |survey|
         .referral
-          How did you hear about us? *
+          .question How did you hear about us? *
           = survey.select(:referral, options_for_select(@referral_hash), :include_blank => true)
+          .p13n-dropdown-arrow-down
 
     .p13n-submit-button
       = user.submit "Next, Personalize your body test!"

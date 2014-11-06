@@ -8,17 +8,16 @@
     = yield(:head)
 
   %body
-    #content-wrapper
-      #container
-        / = render :partial => 'layouts/trainer_app/header/notifications/flash_messages'
-        #title
-          %h1
-            =link_to('THE BODY TEST', root_path)
-        - if content_for? :subtitle
-          #subtitle= yield :subtitle
-        - if content_for? :topsection
-          #topsection= yield :topsection
-        #box-content
-          = yield
+    .container#content-wrapper
+      / = render :partial => 'layouts/trainer_app/header/notifications/flash_messages'
+      #title
+        %h1
+          =link_to('THE BODY TEST', root_path)
+      - if content_for? :subtitle
+        #subtitle= yield :subtitle
+      - if content_for? :topsection
+        #topsection= yield :topsection
+      #box-content
+        = yield
 
     #footer-wrapper= render :partial => 'layouts/footer'
