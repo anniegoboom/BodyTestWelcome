@@ -1,7 +1,10 @@
 @import 'variables'
+@import 'mixins'
 
-#personalization
-  color: $white
-  text-align: center
-  margin: 0px auto
-  width: 60%
+.p13n-submit-button
+  input[type=submit]
+    display: inline-block
+    color: $white
+    @include button-style
+    margin-top: $stdMargin
+    width: 400px
