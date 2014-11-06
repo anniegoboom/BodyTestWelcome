@@ -1,4 +1,5 @@
 @import 'variables'
+@import 'mixins'
 
 #landing-sub-headline
   font-size: 18px
@@ -27,3 +28,33 @@
   .inside-bracket
     display: inline-block
     vertical-align: middle
+
+#signup-box
+  h3
+    margin-top: $stdMargin * 0.5
+    font-weight: bold
+    font-size: 18px
+    height: 27px
+
+  #user_email
+    display: inline-block
+    color: $white
+    margin-right: $stdMargin
+    height: 48px
+    max-width: 80%
+    font-family: Gotham Round
+    font-weight: lighter
+    font-size: 18px
+    @include input-field-style
+
+
+  input[type=submit]
+    display: inline-block
+    color: $white
+    @include button-style
+
+  .subtext
+    opacity: 0.8
+    font-weight: normal
+    font-size: 15px
+    margin-top: $stdMargin
