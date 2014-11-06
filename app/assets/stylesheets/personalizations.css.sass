@@ -1,8 +1,20 @@
 @import 'variables'
 @import 'mixins'
 
-$personalizationBodyWidth: 400px
+$personalizationPage1BodyWidth: 400px
+$personalizationPage2BodyWidth: 500px
 $personalizationQuestionHeight: 40px
+
+#p13n-box
+  form, select, input[type=submit]
+    width: $personalizationPage1BodyWidth
+  .p13n-dropdown-arrow-down
+    left: $personalizationPage1BodyWidth - 40px
+#p13n-box-2
+  form, select, input[type=submit]
+    width: $personalizationPage2BodyWidth
+  .p13n-dropdown-arrow-down
+    left: $personalizationPage2BodyWidth - 40px
 
 #p13n-box, #p13n-box-2
   text-align: center
@@ -10,43 +22,39 @@ $personalizationQuestionHeight: 40px
   form
     text-align: left
     margin: 0px auto
-    width: $personalizationBodyWidth
 
   .question
     margin: $stdMargin*0.5 0
     @include white-round-letters-18px
 
-  #user_first_name,
+  input[type=text]
     display: inline-block
     height: $personalizationQuestionHeight
-    width: $personalizationBodyWidth - 20px
+    width: $personalizationPage1BodyWidth - 20px
     @include white-round-letters-18px
     @include input-field-style
     border-radius: 5px
 
-  #user_gender, #personalization_survey_referral
+  select
     display: inline-block
     height: $personalizationQuestionHeight
-    width: $personalizationBodyWidth
     @include white-round-letters-18px
     @include input-field-style
     border-radius: 5px
     cursor: pointer
 
-.p13n-submit-button
-  input[type=submit]
-    display: inline-block
-    color: $white
-    @include button-style
-    margin-top: $stdMargin
-    width: $personalizationBodyWidth
+  .p13n-submit-button
+    input[type=submit]
+      display: inline-block
+      color: $white
+      @include button-style
+      margin-top: $stdMargin
 
-.p13n-dropdown-arrow-down
-  width: 0
-  height: 0
-  border-left: 10px solid transparent
-  border-right: 10px solid transparent
-  border-top: 10px solid $white
-  position: relative
-  bottom: 25px
-  left: $personalizationBodyWidth - 40px
+  .p13n-dropdown-arrow-down
+    width: 0
+    height: 0
+    border-left: 10px solid transparent
+    border-right: 10px solid transparent
+    border-top: 10px solid $white
+    position: relative
+    bottom: 25px
