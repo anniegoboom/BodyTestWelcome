@@ -1,4 +1,4 @@
-#personalization_survey_part2
+#p13n-box-2
   = form_for @personalization_survey, url: personalization_surveys_path(@personalization_survey) do |survey|
     .error-explanation
       - if @personalization_survey.errors.any?
@@ -46,7 +46,7 @@
           How often do you eat processed food or junk food (chips, crackers, cookies, etc.)?
           .dropdown-select= survey.select(:eat_junkfood, options_for_select(@junkfood_answer_hash), :include_blank => true)
 
-    .submit-button
+    .p13n-submit-button
       = survey.submit "Take the next Step!"
 
 
