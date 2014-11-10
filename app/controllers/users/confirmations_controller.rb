@@ -14,6 +14,8 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   end
 
   def confirm
+    #password too short
+    #passwords dont match
     @original_token = params[resource_name].try(:[], :confirmation_token)
     digested_token = Devise.token_generator.digest(self, :confirmation_token, @original_token)
 
