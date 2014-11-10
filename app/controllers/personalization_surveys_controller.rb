@@ -13,6 +13,16 @@ class PersonalizationSurveysController < ApplicationController
       redirect_to BODY_TEST_PAYMENTS_URL
     else
       setup_survey_answers
+
+      errors_array = []
+      if @personalization_survey.errors.any?
+        @personalization_survey.errors.full_messages.each do |msg|
+          errors_array << msg
+        end
+      end
+
+      flash[:error] = "Please fix the following errors: \n"+errors_array.join("\n")
+
       render :edit
     end
   end

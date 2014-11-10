@@ -1,12 +1,5 @@
 #p13n-box.span6
   = form_for @user, url: save_user_path do |user|
-    / .error-explanation
-    /   - if @user.errors.any? || @personalization_survey.errors.any?
-    /     %ul
-    /       - @user.errors.full_messages.each do |msg|
-    /         %li= msg
-    /       - @personalization_survey.errors.full_messages.each do |msg|
-    /         %li= msg
     .p13n-survey-input-content
       .name
         .question What’s your first name?
