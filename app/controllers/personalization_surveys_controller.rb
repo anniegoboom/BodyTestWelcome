@@ -14,14 +14,9 @@ class PersonalizationSurveysController < ApplicationController
     else
       setup_survey_answers
 
-      errors_array = []
-      if @personalization_survey.errors.any?
-        @personalization_survey.errors.full_messages.each do |msg|
-          errors_array << msg
-        end
-      end
+      errors_array = @personalization_survey.errors.full_messages.map { |msg| msg }.join("\n")
 
-      flash[:error] = "Please fix the following errors: \n"+errors_array.join("\n")
+      flash[:error] = "Please fix the following errors: \n #{errors_array}"
 
       render :edit
     end
