@@ -8,8 +8,8 @@
     = yield(:head)
 
   %body
+    = render :partial => 'layouts/notifications/flash_messages'
     .container#content-wrapper
-      / = render :partial => 'layouts/trainer_app/header/notifications/flash_messages'
       #title
         %h1
           =link_to('THE BODY TEST', root_path)

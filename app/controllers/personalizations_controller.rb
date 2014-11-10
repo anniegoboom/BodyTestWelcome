@@ -18,6 +18,7 @@ class PersonalizationsController < ApplicationController
       redirect_to edit_personalization_surveys_path
     else
       setup_survey_answers
+      flash[:error] = "Please fix the following errors: A referral is required"
       render :new
     end
   end

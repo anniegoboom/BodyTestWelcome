@@ -1,0 +1,13 @@
+- unless @flash_included
+  #flash_messages.flash
+    - [:success, :notice, :error].each do |msg|
+      - message = flash[msg]
+      - if message.present?
+        %p{:class => msg.to_s}
+          - if message.is_a?(Array)
+            - message.each do |m|
+              = m
+              %br
+          - else
+            = flash[msg]
+  - @flash_included = true

@@ -1,4 +1,5 @@
 @import 'variables'
+@import 'mixins'
 
 body
   background: url(background.jpg) no-repeat fixed center 0 $black
@@ -10,6 +11,24 @@ body
   text-align: center
   margin: 0px auto
   width: 60%
+#flash_messages
+  @include white-round-letters-18px
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  .error
+    background-color: $red
+    margin: 0
+    padding: $stdPadding*0.25 0
+  .success
+    background-color: $green
+    margin: 0
+    padding: $stdPadding*0.25 0
+  .notice
+    background-color: $yellow
+    margin: 0
+    padding: $stdPadding*0.25 0
 
 #title
   margin-top: $stdMargin * 4
