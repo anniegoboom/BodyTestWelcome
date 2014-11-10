@@ -6,11 +6,6 @@ BodyTestWelcome::Application.initialize!
 
 # Mailer for devise
 ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.raise_delivery_errors = false
-ActionMailer::Base.default :charset => "utf-8"
-
-ActionMailer::Base.perform_deliveries = true
-ActionMailer::Base.default_url_options = { :host => 'http://body-test-welcome.herokuapp.com' }
 
 ActionMailer::Base.smtp_settings = {
   address: "smtp.gmail.com",
