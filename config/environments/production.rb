@@ -66,7 +66,7 @@ BodyTestWelcome::Application.configure do
 
 
   # heroku and devise
-  config.action_mailer.default_url_options = { :host => 'http://body-test-welcome.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'body-test-welcome.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = false
