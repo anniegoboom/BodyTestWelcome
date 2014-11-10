@@ -20,9 +20,6 @@ BodyTestWelcome::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  # heroku host
-  config.action_mailer.default_url_options = { :host => 'http://body-test-welcome.herokuapp.com' }
-
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
@@ -66,6 +63,25 @@ BodyTestWelcome::Application.configure do
 
   # Turn off angular minifier
   config.assets.js_compressor = Uglifier.new(mangle: false) if defined? Uglifier
+
+
+  # heroku and devise
+  config.action_mailer.default_url_options = { :host => 'http://body-test-welcome.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: ENV["GMAIL_DOMAIN"],
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV["GMAIL_USERNAME"],
+  password: ENV["GMAIL_PASSWORD"]
+  }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)

@@ -26,6 +26,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rescue'
   gem 'pry-nav'
+  gem 'foreman'
 end
 
 group :production do
