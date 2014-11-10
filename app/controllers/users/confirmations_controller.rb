@@ -32,4 +32,10 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
    def permitted_params
      params.require(resource_name).permit(:confirmation_token, :password, :password_confirmation)
    end
+
+  def display_error_on_password_creation_page
+    errors_array = resource.errors.full_messages.map { |msg| msg }.join("\n")
+    flash[:error] = "Sorry, \n #{errors_array}"
+    redirect_to user_password_confirmation_path
+  end
 end

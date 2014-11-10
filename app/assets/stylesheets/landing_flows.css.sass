@@ -60,3 +60,22 @@
     font-weight: normal
     font-size: 15px
     margin-top: $stdMargin
+
+#password-box
+  #user_password, #user_password_confirmation
+    display: inline-block
+    margin-right: $stdMargin
+    height: 48px
+    max-width: 80%
+    @include white-round-letters-18px
+    @include input-field-style
+    margin-bottom: $stdMargin*0.25
+    margin-left: $stdMargin
+    width: 278px
+
+
+  input[type=submit]
+    width: 300px
+    display: inline-block
+    color: $white
+    @include button-style
