@@ -2,13 +2,13 @@ BodyTestWelcome::Application.routes.draw do
   devise_for :users, :controllers => {:confirmations => 'users/confirmations', registrations: 'users/registrations', passwords: 'users/passwords'}
 
   devise_scope :user do
-    match "/confirm", to: "confirmations#confirm", :as => :user_password_confirmation
+    match "/confirm", to: 'users/confirmations#confirm', :as => :user_password_confirmation
   end
 
   resource :landing_flows, only: :show
 
   resource :personalizations, only: :new
-  match "/save_user", to: "personalizations#save_user", via: :put
+  match "/save_user", to: 'personalizations#save_user', via: :put
 
   resource :personalization_surveys, only: [:edit, :update]
   resource :paywalls, only: :show
